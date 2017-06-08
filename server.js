@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 const app = express()
 
 app.get('*', function (req, res) {
-  const url = req.url;
+  const url = decodeURIComponent(req.url);
   const timeStampObject = timeStamp.parseURL(url)
   res.send(timeStampObject);
 });
